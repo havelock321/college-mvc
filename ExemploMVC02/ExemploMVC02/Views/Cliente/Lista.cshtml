@@ -1,0 +1,45 @@
+﻿@model List<ExemploMVC02.Models.Cliente>
+@{
+    ViewBag.Title = "Lista";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        Digite o Nome para ser encontrado: @Html.TextBox("stringId") <br />
+        <input type="submit" value="Pesquisar" />
+    </p>
+}
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Lista de Usuarios/Clientes</div>
+
+        <!-- Table -->
+        <table class="table">
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => cliente.FCLICOD)
+                        @Html.DisplayFor(m => cliente.FNOME)
+                        @Html.DisplayFor(m => cliente.FCPF)
+                        @Html.DisplayFor(m => cliente.FENDERECO)
+                    </td>
+                </tr>
+
+            }
+    
+
+    </table>
+    <nav>
+        <ul class="pager">
+            <li class="previous disabled"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+            <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+    </nav>
+
+</div>
+
